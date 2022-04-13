@@ -2,6 +2,7 @@ import time
 import numpy as np
 from tqdm import tqdm
 import multiprocessing
+from tqdm.contrib.concurrent import process_map
 
 N_PROCESS = 20
 tasks = np.arange(100)
@@ -21,3 +22,6 @@ if __name__ == "__main__":
     else:
         for scene in tqdm(tasks, desc='overall'):
             run(scene)
+    
+    # using tqdm process_map would be much much simper
+    process_map(run, tasks, max_workers=N_PROCESS)
