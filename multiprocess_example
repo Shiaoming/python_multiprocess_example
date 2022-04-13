@@ -23,5 +23,5 @@ if __name__ == "__main__":
         for scene in tqdm(tasks, desc='overall'):
             run(scene)
     
-    # using tqdm process_map would be much much simper
+    # using tqdm process_map would be much much simpler
     process_map(run, tasks, max_workers=N_PROCESS)
